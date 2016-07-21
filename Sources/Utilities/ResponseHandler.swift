@@ -36,23 +36,25 @@ class ResponseHandler {
                  inWebSocket: webSocket)
     }
     
-    private func send(message: String, toChannelWithId channelId: String, inWebSocket webSocket: WebSocket) throws{
-        var response: JSON = [:]
-        response["type"] = JSON("message")
-        response["channel"] = JSON(channelId)
-        response["text"] = JSON(message)
-        try webSocket.send(JSON.serialize(response).string())
+    private func send(message: String?, toChannelWithId channelId: String, inWebSocket webSocket: WebSocket) throws{
+        if message != nil{
+            var response: JSON = [:]
+            response["type"] = JSON("message")
+            response["channel"] = JSON(channelId)
+            response["text"] = JSON(message!)
+            try webSocket.send(JSON.serialize(response).string())
+        }
     }
     
     
     // MARK: - Method to override
     
-    func response(toMessage text: String) -> String{
+    func response(toMessage text: String) -> String?{
         return "Hey! This is bot."
     }
     
     
-    func response(toMessage text: String, inChannel channel: [String: Polymorphic]) -> String{
+    func response(toMessage text: String, inChannel channel: [String: Polymorphic]) -> String?{
         return response(toMessage: text)
     }
     

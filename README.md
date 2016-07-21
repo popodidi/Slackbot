@@ -68,7 +68,8 @@ override func response(toMessage text: String) -> String{
 	if text == "how are you?"{
 		return "I'm good"
 	}else{
-		return "Sorry, my response is limited."
+		// return nil for no response
+		return nil
 	}
 }
 ```

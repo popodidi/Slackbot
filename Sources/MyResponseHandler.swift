@@ -13,14 +13,14 @@ class MyResponseHandler: ResponseHandler{
     
     
     // Override this method to customize your bot response
-    override func response(toMessage text: String) -> String{
+    override func response(toMessage text: String) -> String?{
         return super.response(toMessage: text)
     }
     
     
     /*
     // Override this method to customize your bot response for different channel. This method calls response(toMessage:) by default.
-    override func response(toMessage text: String, inChannel channel: [String : Polymorphic]) -> String {
+    override func response(toMessage text: String, inChannel channel: [String : Polymorphic]) -> String? {
         
         guard let isGeneral = channel["is_general"]?.bool where isGeneral else{
             if let channelName = channel["name"]?.string {
