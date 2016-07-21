@@ -27,7 +27,7 @@ $ open Slackbot.xcodeproj
 
 ### Set bot token
 
-[Create a bot](https://my.slack.com/services/new/bot) to get a token if you don't have one.
+[Create a bot](https://my.slack.com/services/new/bot) to get token if you don't have one.
 Set it up in `/App/Config.swift`
 
 ```swift
