@@ -1,6 +1,6 @@
 # Slackbot 🤖
 
-Slackbot is a project that could easily customize the response of a bot, utilizing Swift with Vapor framework.
+Slackbot utilizes Swift with Vapor framework to build an swift executable that allows you to customize response of your slackbot by simply setting bot token and adding a few lines of Swift codes.
 
 Feel free to open any issue or pull request.
 
