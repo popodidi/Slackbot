@@ -64,7 +64,7 @@ Check out `/Sources/MyResponseHandler` and follow the instructions written in co
 For example, if you want to respond to a specific message, "how are you?".
 
 ```swift
-override func response(toMessage text: String) -> String{
+override func response(toMessage text: String) -> String?{
 	if text == "how are you?"{
 		return "I'm good"
 	}else{
