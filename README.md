@@ -28,7 +28,7 @@ $ open Slackbot.xcodeproj
 ### Set bot token
 
 [Create a bot](https://my.slack.com/services/new/bot) to get token if you don't have one.
-Set it up in `/App/Config.swift`
+Set it up in `/Resources/Config.swift`
 
 ```swift
 import Foundation
@@ -59,7 +59,7 @@ Choose **Slackbot** scheme and press **Run** button
 
 ### Customize response
 
-Check out `/App/MyResponseHandler` and follow the instructions written in comments to override the functions.
+Check out `/Resources/MyResponseHandler` and follow the instructions written in comments to override the functions.
 
 For example, if you want to respond to a specific message, "how are you?".
 
