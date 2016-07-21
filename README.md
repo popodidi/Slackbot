@@ -1,6 +1,6 @@
 # Slackbot 🤖
 
-Slackbot is a project that could easily customize the response of a bot, utilizing Swift with Vapor framework.
+Slackbot utilizes Swift with Vapor framework to build an swift executable that allows you to customize response of your slackbot by simply setting bot token and adding a few lines of Swift codes.
 
 Feel free to open any issue or pull request.
 
@@ -64,7 +64,7 @@ Check out `/Sources/MyResponseHandler` and follow the instructions written in co
 For example, if you want to respond to a specific message, "how are you?".
 
 ```swift
-override func response(toMessage text: String) -> String{
+override func response(toMessage text: String) -> String?{
 	if text == "how are you?"{
 		return "I'm good"
 	}else{
