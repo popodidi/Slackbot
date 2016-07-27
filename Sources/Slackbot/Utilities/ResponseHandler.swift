@@ -8,10 +8,14 @@
 
 import Foundation
 import Vapor
+import VaporTLS
 
 class ResponseHandler {
     
-    let droplet = Droplet()
+    var droplet : Droplet!
+    init(droplet: Droplet){
+        self.droplet = droplet
+    }
     
     func handle(event: JSON, inWebSocket webSocket: WebSocket) throws{
         guard
@@ -20,6 +24,7 @@ class ResponseHandler {
             else {
                 return
         }
+        
         let channelResponse = try droplet.client.get(Slack.Url.ChannelInfo,
                                                      headers: ["token":Slack.Config.BotToken],
                                                      query: ["token":Slack.Config.BotToken,

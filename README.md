@@ -44,6 +44,13 @@ struct Slack {
 
 ```
 
+### Install openssl (for macOS)
+
+```bash 
+$ brew install openssl
+$ brew link openssl -f
+```
+
 ### Run
 
 #### Terminal

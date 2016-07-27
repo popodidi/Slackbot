@@ -9,9 +9,10 @@
 
 import Foundation
 import Vapor
+import VaporTLS
 
-let handler = MyResponseHandler()
-let droplet = Droplet()
+let droplet = Droplet(providers: [VaporTLS.Provider(modes: .client)])
+let handler = MyResponseHandler(droplet: droplet)
 
 // MARK: -Connect Web Socket
 func botOn() throws{
@@ -23,14 +24,16 @@ func botOn() throws{
         "no_unreads": true
     ]
     let body = HTTPBody()
-    
+
     let rtmResponse = try droplet.client.get(Slack.Url.RtmStart, headers: headers, query: query, body: body)
+    
+    
     guard let webSocketURL = rtmResponse.data["url"].string else{
         print("Please set the Bot token in Config.swift")
         return
     }
     
-    try WebSocket.connect(to: webSocketURL) { webSocket in
+    try WebSocket.connect(to: webSocketURL, using: droplet.client) { webSocket in
         print("Connected to \(webSocketURL)")
         
         webSocket.onText = { webSocket, text in
@@ -41,6 +44,7 @@ func botOn() throws{
         
         webSocket.onClose = { webSocket, _, _, _ in
             print("\n[CLOSED]\n")
+            print("MY RESPONSE POOL")
         }
     }
 }
