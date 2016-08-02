@@ -6,9 +6,10 @@ Feel free to open any issue or pull request.
 
 ## Environment
 
-- Swift: DEVELOPMENT-SNAPSHOT-2016-06-20-a 
+- Swift: 3.0 
 - Vapor: 0.14
 
+> It is recommended to use [swiftenv](https://swiftenv.fuller.li) to manage the Swift version.
 
 ## Get started
 
